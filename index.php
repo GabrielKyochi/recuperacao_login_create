@@ -26,7 +26,7 @@
                         <input type="submit" name="submit" value="Login" required>
                     </div>
                     <div class="links">
-                        Você não tem uma conta? <a href="registrer.html">Criar uma conta agora</a>
+                        Você não tem uma conta? <a href="register.php">Criar uma conta agora</a>
                     </div>
                 </form>
         </div>

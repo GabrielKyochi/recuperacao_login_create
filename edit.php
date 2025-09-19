@@ -47,7 +47,7 @@
                         <input type="submit" name="submit" value="Login" required>
                     </div>
                     <div class="links">
-                        Já é um membro? <a href="registrer.html">Entrar</a>
+                        Já é um membro? <a href="index.php">Entrar</a>
                     </div>
                 </form>
         </div>
