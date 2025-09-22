@@ -1,3 +1,11 @@
+<?php 
+   session_start();
+
+   include("php/config.php");
+   if(!isset($_SESSION['valid'])){
+    header("Location: index.php");
+   }
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,22 +13,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    <title>Editar perfil</title>
+    <title>Change Profile</title>
 </head>
 <body>
-     <div class="nav">
+    <div class="nav">
         <div class="logo">
             <p><a href="home.php"> Logo</a></p>
         </div>
 
         <div class="right-links">
-            <a href='#'>Trocar perfil</a>";
+            <a href="#">Alterar Perfil</a>
             <a href="php/logout.php"> <button class="btn">Sair</button> </a>
         </div>
     </div>
     <div class="container">
-    <div class="box form-box"></div>
-     <?php 
+        <div class="box form-box">
+            <?php 
                if(isset($_POST['submit'])){
                 $username = $_POST['username'];
                 $email = $_POST['email'];
@@ -34,7 +42,7 @@
                     echo "<div class='message'>
                     <p>Perfil Atualizado!</p>
                 </div> <br>";
-              echo "<a href='home.php'><button class='btn'>Vá para a aba home!</button>";
+              echo "<a href='home.php'><button class='btn'>Vá para a aba home</button>";
        
                 }
                }else{
@@ -47,39 +55,33 @@
                     $res_Email = $result['Email'];
                     $res_Age = $result['Age'];
                 }
+
             ?>
-                <header>Entrar com uma conta</header>
-                <form action="" method="post">
-                    <div class="field input">
-                        <label for="username">Username</label>   
-                        <input type="text" name="username" id="username" autocomplete="off" required>
-                    </div>
+            <header>Trocar Perfil</header>
+            <form action="" method="post">
+                <div class="field input">
+                    <label for="username">Nome de usuário</label>
+                    <input type="text" name="username" id="username" value="<?php echo $res_Uname; ?>" autocomplete="off" required>
+                </div>
 
-                    <div class="field input">
-                        <label for="email">Email</label>   
-                        <input type="text" name="email" id="email" autocomplete="off" required>
-                    </div>
+                <div class="field input">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" value="<?php echo $res_Email; ?>" autocomplete="off" required>
+                </div>
 
-                    <div class="field input">
-                        <label for="age">Age</label>   
-                        <input type="number" name="age" id="age" autocomplete="off" required>
-                    </div>
-
-                    <div class="field input">
-                        <label for="password">Password</label>   
-                        <input type="password" name="password" id="password" autocomplete="off" required>
-                    </div>
+                <div class="field input">
+                    <label for="age">Idade</label>
+                    <input type="number" name="age" id="age" value="<?php echo $res_Age; ?>" autocomplete="off" required>
+                </div>
+                
+                <div class="field">
                     
-                    <div class="field">
-                    
-                        <input type="submit" name="submit" value="Login" required>
-                    </div>
-                    <div class="links">
-                        Já é um membro? <a href="index.php">Entrar</a>
-                    </div>
-                </form>
+                    <input type="submit" class="btn" name="submit" value="Update" required>
+                </div>
+                
+            </form>
         </div>
-        <?php } ?> 
-    </div>
+        <?php } ?>
+      </div>
 </body>
 </html>
