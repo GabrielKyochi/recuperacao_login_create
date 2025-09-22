@@ -47,15 +47,15 @@
        <div class="main-box top">
           <div class="top">
             <div class="box">
-                <p>Olá <b>Ludiflex</b>, Bem vindo!</p>
+                <p>Olá <b><?php echo $res_Uname ?></b>, Bem vindo!</p>
             </div>
             <div class="box">
-                <p>Seu email é <b>123@gmail.com</b>.</p>
+                <p>Seu email é <b><?php echo $res_Email ?></b>.</p>
             </div>
           </div>
           <div class="bottom">
             <div class="box">
-                <p>E você tem <b>20 anos de idade</b>.</p> 
+                <p>E você tem <b><?php echo $res_Age ?></b></b>.</p> 
             </div>
           </div>
        </div>
